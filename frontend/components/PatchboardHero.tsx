@@ -31,8 +31,8 @@ const ROUTES = [
 
 export default function PatchboardHero() {
   const leftX = 20;
-  const rightX = 480;
-  const width = 500;
+  const rightX = 500;
+  const width = 660;
   const rowGap = 34;
   const top = 16;
 
