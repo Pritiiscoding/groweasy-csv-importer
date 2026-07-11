@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap");
+
+html,
+body {
+  background-color: #0f1115;
+  color: #e7e9ee;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+::selection {
+  background: #e8a33d;
+  color: #0f1115;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: #171a21;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #262b36;
+  border-radius: 4px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: #3a4152;
+}
+
+@keyframes pulse-line {
+  0%,
+  100% {
+    stroke-opacity: 0.25;
+  }
+  50% {
+    stroke-opacity: 0.9;
+  }
+}
+
+.route-line {
+  animation: pulse-line 2.4s ease-in-out infinite;
+}
