@@ -145,7 +145,10 @@ async function callOpenAI(batch) {
       ],
     }),
   });
-  if (!res.ok) throw new Error(`OpenAI request failed: ${res.status}`);
+  if (!res.ok) {
+    const errBody = await res.text().catch(() => "");
+    throw new Error(`OpenAI request failed: ${res.status} ${errBody}`);
+  }
   const data = await res.json();
   return JSON.parse(stripCodeFences(data.choices[0].message.content));
 }
@@ -164,7 +167,10 @@ async function callGemini(batch) {
       }),
     }
   );
-  if (!res.ok) throw new Error(`Gemini request failed: ${res.status}`);
+  if (!res.ok) {
+    const errBody = await res.text().catch(() => "");
+    throw new Error(`Gemini request failed: ${res.status} ${errBody}`);
+  }
   const data = await res.json();
   const text = data.candidates[0].content.parts.map((p) => p.text).join("\n");
   return JSON.parse(stripCodeFences(text));
